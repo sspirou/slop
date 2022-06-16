@@ -1,0 +1,74 @@
+<div id="<%= dom_id user %>">
+  <p>
+    <strong>Username:</strong>
+    <%= user.username %>
+  </p>
+
+  <p>
+    <strong>Bio:</strong>
+    <%= user.bio %>
+  </p>
+
+  <p>
+    <strong>City:</strong>
+    <%= user.city %>
+  </p>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Weather</h5>
+    <p class="card-text"><%= @current_weather.weather_text %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Temp: <%= @current_weather.temperature %></li>
+    <li class="list-group-item">Real Feel: <%= @current_weather.real_feel %></li>
+    <li class="list-group-item">Wind Speed: <%= @current_weather.wind_speed %></li>
+  </ul>
+</div>
+
+<h3>
+  Workouts
+</h3>
+
+<div id="workouts">
+  <% user.workouts.each_slice(2) do |slice| %>
+    <div class="row">
+      <% slice.each do |workout| %>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= workout.name %></h5>
+              <p class="card-text"><%= truncate(workout.description, :length => 120) %></p>
+              <p><%= link_to "Show this workout", workout %></p>
+              <p><%= button_to "Drop Workout", "/drop_workout/#{user.id}/#{workout.id}", method: :delete, class: 'link-button' %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<h3>
+  Recipes
+</h3>
+
+<div id="recipes">
+  <% user.recipes.each_slice(2) do |slice| %>
+    <div class="row">
+      <% slice.each do |recipe| %>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= recipe.name %></h5>
+              <p class="card-text"><%= truncate(recipe.description, :length => 120) %></p>
+              <p><%= link_to "Show this recipe", recipe %></p>
+              <p><%= button_to "Drop Recipe", "/drop_recipe/#{user.id}/#{recipe.id}", method: :delete, class: 'link-button' %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

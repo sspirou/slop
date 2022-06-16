@@ -1,0 +1,26 @@
+<h1> Login </h1>
+
+<% if @message %>
+<div class="alert alert-danger" role="alert">
+  <%=@message %>
+</div>
+<% end %>
+
+<!-- TODO: Replace this with a form -->
+<!--<h3>TODO: Implement a Form</h3>-->
+<%= render "form" %>
+<%#= form_with(scope: 'session') do |form| %>
+<!--  <div>-->
+    <%#= form.label :username, style: "display: block" %>
+    <%#= form.text_field :username %>
+<!--  </div>-->
+
+<!--  <div>-->
+    <%#= form.label :password, style: "display: block" %>
+    <%#= form.text_field :password %>
+<!--  </div>-->
+
+<!--  <div>-->
+    <%#= form.submit %>
+<!--  </div>-->
+<%# end %>

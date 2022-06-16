@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= link_to "Back to workouts", workouts_path %>
+
+<%= render @workout %>
+
+<div>
+  <% if @workout.users.include?(current_user) %>
+    <%= button_to "Edit", edit_workout_path(@workout), method: :get %>
+    <%= button_to "Destroy", @workout, method: :delete %>
+  <% end %>
+</div>

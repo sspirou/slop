@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipe: one
+  workout: one
+  user: one
+  description: MyText
+
+two:
+  recipe: two
+  workout: two
+  user: two
+  description: MyText

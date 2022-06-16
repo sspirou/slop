@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Workouts</h1>
+
+<%= link_to "New workout", new_workout_path %>
+
+<div id="workouts">
+  <% @workouts.each_slice(2) do |slice| %>
+    <div class="row">
+        <% slice.each do |workout| %>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><%= workout.name %></h5>
+                  <p class="card-text"><%= truncate(workout.description, :length => 120) %></p>
+                  <p><%= link_to "Show this workout", workout %></p>
+                  <% if workout.users.include?(current_user) %>
+                    <p><%= button_to "Drop Workout", "/drop_workout/#{current_user.id}/#{workout.id}", method: :delete, class: 'link-button' %></p>
+                  <% else %>
+                    <p><%= button_to "Add Workout", "/add_workout/#{current_user.id}/#{workout.id}", method: :post, class: 'link-button' %></p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        <% end %>
+    </div>
+  <% end %>
+</div>
+

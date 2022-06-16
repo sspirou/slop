@@ -1,0 +1,23 @@
+<div id="<%= dom_id post %>">
+
+  <h1>
+    <strong>
+    <%= link_to @user.username, @user %>
+    </strong>
+  </h1>
+
+  <h5>
+    <strong>Recipe:</strong>
+    <%= link_to @recipe.name, @recipe %>
+  </h5>
+
+  <h5>
+    <strong>Workout:</strong>
+    <%= link_to @workout.name, @workout %>
+  </h5>
+
+  <p>
+    <%= post.description %>
+  </p>
+
+</div>

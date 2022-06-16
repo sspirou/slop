@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= link_to "Back to recipes", recipes_path %>
+
+<%= render @recipe %>
+
+<div>
+  <% if @recipe.users.include?(current_user) %>
+    <%= button_to "Edit", edit_recipe_path(@recipe), method: :get %>
+    <%= button_to "Destroy", @recipe, method: :delete %>
+  <% end %>
+</div>
